@@ -12,6 +12,12 @@ This cheatcode is only available in test's setup.
 %lang starknet
 
 @external
+func __setup__() {
+    // %{ skip("Reason") %} <-- won't work
+    return ();
+}
+
+@external
 func setup_function() {
     %{ skip("Reason") %} // <-- ok
     return ();
@@ -19,12 +25,6 @@ func setup_function() {
 
 @external
 func test_function() {
-    // %{ skip("Reason") %} <-- won't work
-    return ();
-}
-
-@external
-func __setup__() {
     // %{ skip("Reason") %} <-- won't work
     return ();
 }
