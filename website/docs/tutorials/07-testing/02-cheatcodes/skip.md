@@ -12,20 +12,17 @@ This cheatcode is only available in [test case's setup](../README.md#setup-hooks
 %lang starknet
 
 @external
-func __setup__() {
-    // %{ skip("Reason") %} <-- won't work
-    return ();
-}
-
-@external
 func setup_function() {
-    %{ skip("Reason") %} // <-- ok
+    %{
+        condition = True
+        if condition:
+            skip("Reason")
+    %}
     return ();
 }
 
 @external
 func test_function() {
-    // %{ skip("Reason") %} <-- won't work
     return ();
 }
 ```
